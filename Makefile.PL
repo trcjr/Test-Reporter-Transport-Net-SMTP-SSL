@@ -27,10 +27,10 @@ sub MY::test {
 q(
 
 test : pure_all
-    prove-I lib t/*
+	prove-I lib t/*
 
 test_hudson : pure_all
-    prove -I lib --formatter=TAP::Formatter::JUnit t/*
+	prove -I lib --formatter=TAP::Formatter::JUnit t/*
 );
 }
 
