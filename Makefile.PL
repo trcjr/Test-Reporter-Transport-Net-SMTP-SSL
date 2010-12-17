@@ -33,4 +33,3 @@ test_hudson : pure_all
 	prove -I lib --formatter=TAP::Formatter::JUnit t/* >> hudson_test_output.xml
 );
 }
-
