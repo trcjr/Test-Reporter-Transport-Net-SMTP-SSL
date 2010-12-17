@@ -14,7 +14,23 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More' => 0,
+        'Net::SMTP::SSL' => 1.01,
+        'TAP::Formatter::JUnit' => 0,
+        'Test::Reporter' => 0,
+
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Test-Reporter-Transport-Net-SMTP-SSL-*' },
 );
+
+sub MY::test {
+    q(
+
+        test : pure_all
+            prove-I lib t/*
+
+        test_hudson : pure_all
+            prove -I lib --formatter=TAP::Formatter::JUnit t/*
+    );
+}
+
