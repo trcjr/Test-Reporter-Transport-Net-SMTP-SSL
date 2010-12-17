@@ -24,13 +24,13 @@ WriteMakefile(
 );
 
 sub MY::test {
-    q(
+q(
 
-        test : pure_all
-            prove-I lib t/*
+test : pure_all
+    prove-I lib t/*
 
-        test_hudson : pure_all
-            prove -I lib --formatter=TAP::Formatter::JUnit t/*
-    );
+test_hudson : pure_all
+    prove -I lib --formatter=TAP::Formatter::JUnit t/*
+);
 }
 
